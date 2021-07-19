@@ -95,3 +95,23 @@ static_cdn/
 14. Fill up the `navbar.html` to create a working navigation bar for the entire website. This is included in the `base.html` to render it to any template which extends `base.html`. This creates a nice navigation panel for us to navigate through different pages.
 
 15. With this, we have a working website which allows us to store new sales data and views stats of sales based on number of sales for different items and selling price on daily basis.
+
+### Upload data with csv files with new app
+
+#### <time datetime="2021-07-19 02:50:00">July 20, 2021 - 02:50</time>
+
+16. Create a new app `csvs` in the same way we created `products` app before. Follow the same steps to create a `csvs/urls.py` and `csvs/forms.py`, add a model in the `csvs/models.py` and make migrations to create the database table.
+
+17. Remove the database, and all the migration files, but leave the `__init__.py` files in migrations directories. Create a super user again, and run migrations like before to setup your new database. Create a second user this time for working with data uploads.
+
+18. Create view for the `csvs` app, add templates for upload csv files. Put the template called `upload.html` into the templates directory local to the `csvs` app. Add a form in the `forms.py` and render the form into the template using the view function.
+
+19. Build logic to store all the data row from uploaded csv file into the database tables at once so that we can use these data to view the plots and charts in our website. Make sure that your csv file has this format:
+
+```
+product_name, quantity, unit_price, salesman_id, date_time
+```
+
+Please make sure that your data does not have any header row.
+
+21. Upload a csv file to populate the database. A [`demo csv file`](https://github.com/Rakib1508/django-analyzr/tree/master/media_cdn/media_root/csvs/sales_data.csv) has been provided for you to start working, DO NOT MAKE ANY CHANGES FOR NOW WITH THE FILE.
