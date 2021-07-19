@@ -77,3 +77,11 @@ static_cdn/
 9. Create some logics in the `products/models.py` file to handle cases when the form provided is not filled up completely, or cases for incomplete required information. This is done by putting some error messages on the screen to guide the user through providing all necessary information.
 
 10. Put a `navbar.html` in the root templates directory to create a consistent navigation panel for the website. Currently, the panel just contains a heading which will be modified later.
+
+### Create Stat Modal
+
+#### <time datetime="2021-07-19 20:45:00">July 19, 2021 - 20:45</time>
+
+11. Create a modal displaying some statistical information about the data, style it and add modal behaviors. The basic style and behavior are handled with `Semantic UI`, I have used a few custom styles to modify the looks.
+
+12. Modify titles over each types of charts in the `utils.py` file. Create new HTML template to add new records in the database from the user. Authentication system will be built later.

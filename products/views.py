@@ -11,6 +11,7 @@ def chart_select_view(request):
     error_message = None
     df = None
     graph = None
+    price = None
 
     product_df = pd.DataFrame(Product.objects.all().values())
     purchase_df = pd.DataFrame(Purchase.objects.all().values())
@@ -22,6 +23,7 @@ def chart_select_view(request):
         ).drop(
             ['id_y', 'date_y'], axis=1
         ).rename({'id_x': 'id', 'date_x': 'date'}, axis=1)
+        price = df['price']
 
         if request.method == 'POST':
             chart_type = request.POST['sales']
@@ -46,7 +48,12 @@ def chart_select_view(request):
     else:
         error_message = 'No records found!'
     context = {
+        'price': price,
         'graph': graph,
         'error_message': error_message,
     }
     return render(request, 'products/main.html', context)
+
+
+def add_purchase_view(request):
+    return render(request, 'products/add.html', {})
