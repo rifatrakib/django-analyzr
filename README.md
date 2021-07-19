@@ -114,4 +114,4 @@ product_name, quantity, unit_price, salesman_id, date_time
 
 Please make sure that your data does not have any header row.
 
-21. Upload a csv file to populate the database. A [`demo csv file`](https://github.com/Rakib1508/django-analyzr/tree/master/media_cdn/media_root/csvs/sales_data.csv) has been provided for you to start working, DO NOT MAKE ANY CHANGES FOR NOW WITH THE FILE.
+21. Upload a csv file to populate the database. A [`demo csv file`](https://github.com/Rakib1508/django-analyzr/blob/master/media_cnd/media_root/csvs/sales_data.csv) has been provided for you to start working, DO NOT MAKE ANY CHANGES FOR NOW WITH THE FILE.
