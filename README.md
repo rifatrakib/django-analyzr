@@ -67,3 +67,13 @@ static_cdn/
                   some .js files
             some .js files
 ```
+
+### Create charts and render into HTML
+
+#### <time datetime="2021-07-19 20:07:00">July 19, 2021 - 20:07</time>
+
+8. We will put all our extra codes for `products` app into a separate python file `utils.py`. At this point, create this file inside `products` directory and write the functions to generate the graphs using matplotlib and seaborn, then produce a byte buffer representing that graph as a `png` image. Pass this buffer into the view and render it into the template to display it on the webpage.
+
+9. Create some logics in the `products/models.py` file to handle cases when the form provided is not filled up completely, or cases for incomplete required information. This is done by putting some error messages on the screen to guide the user through providing all necessary information.
+
+10. Put a `navbar.html` in the root templates directory to create a consistent navigation panel for the website. Currently, the panel just contains a heading which will be modified later.

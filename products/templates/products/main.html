@@ -3,7 +3,52 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <h1>Hello!</h1>
-    <hr>
-    {{ df | safe }}
+    <div>
+        {% if error_message %}
+        <div class="ui negative message">
+            <i class="close icon"></i>
+            <div class="header">
+                {{ error_message }}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if request.POST %}
+
+            {% if graph %}
+            <img src="data:image/png;base64, {{ graph | safe }}">
+            {% endif %}
+
+        {% endif %}
+
+        <form action="" method="POST" class="ui form">
+            {% csrf_token %}
+            <div class="field">
+                <label>Choose a chart-type</label>
+                <div class="ui selection dropdown">
+                    <input type="hidden" name="sales">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">--------------</div>
+                    <div class="menu">
+                        <div class="item" value="bar">Bar plot</div>
+                        <div class="item" value="line">Line plot</div>
+                        <div class="item" value="count">Count plot</div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Date from: </label>
+                        <input type="date" name="date_from" placeholder="Date from">
+                    </div>
+                    <div class="field">
+                        <label>Date to: </label>
+                        <input type="date" name="date_to" placeholder="Date to">
+                    </div>
+                </div>
+            </div>
+            <button class="ui primary button" type="submit">Select</button>
+        </form>
+    </div>
 {% endblock content %}
