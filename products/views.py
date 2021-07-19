@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Product, Purchase
 
 from .utils import get_simple_plot
+from .forms import PurchaseForm
 
 import pandas as pd
 
@@ -56,4 +57,18 @@ def chart_select_view(request):
 
 
 def add_purchase_view(request):
-    return render(request, 'products/add.html', {})
+    added_message = None
+    form = PurchaseForm(request.POST or None)
+
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.salesman = request.user
+        obj.save()
+        form = PurchaseForm()
+        added_message = 'Sales data saved successfully!'
+
+    context = {
+        'form': form,
+        'added_message': added_message,
+    }
+    return render(request, 'products/add.html', context)

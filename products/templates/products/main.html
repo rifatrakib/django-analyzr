@@ -19,7 +19,7 @@
         </ul>
     </div>
 </div>
-
+{{ products | safe }}
 <div>
     <div class="block-center">
         {% if error_message %}
@@ -75,7 +75,9 @@
     <br>
     <div class="block-center">
         <button class="ui secondary button" id="modal-btn">See summary</button>
-        <button class="ui positive button">Add records</button>
+        <a href="{% url 'products:add-purchase-view' %}">
+            <button class="ui positive button">Add records</button>
+        </a>
     </div>
 </div>
 

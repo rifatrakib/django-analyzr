@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
 
-{% block title %}<i>Add Purchase</i>{% endblock title %}
+{% block title %}Add Sales{% endblock title %}
 
 {% block content %}
 
-<h1>Add</h1>
+<a href="{% url 'products:main-products-view' %}">
+    <h3><i class="angle double left icon"></i> Go to products</h3>
+</a>
+<br>
+
+{% if added_message %}
+<div class="ui success message">
+    <i class="close icon"></i>
+    <div class="header">
+        {{ added_message }}
+    </div>
+</div>
+{% endif %}
+<form action="" method="POST" class="ui form">
+    {% csrf_token %}
+    {{ form }}
+    <!-- <br><br> -->
+    <button class="ui positive button mtop">Add sales data</button>
+</form>
 
 {% endblock %}

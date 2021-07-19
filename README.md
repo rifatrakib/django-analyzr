@@ -82,6 +82,16 @@ static_cdn/
 
 #### <time datetime="2021-07-19 20:45:00">July 19, 2021 - 20:45</time>
 
-11. Create a modal displaying some statistical information about the data, style it and add modal behaviors. The basic style and behavior are handled with `Semantic UI`, I have used a few custom styles to modify the looks.
+11. Create a modal displaying some statistical information about the data, style it and add modal behaviors. The basic style and behavior are handled with [`Semantic UI`](https://semantic-ui.com/introduction/getting-started.html), I have used a few custom styles to modify the looks.
 
 12. Modify titles over each types of charts in the `utils.py` file. Create new HTML template to add new records in the database from the user. Authentication system will be built later.
+
+### Create record adding mechanism
+
+#### <time datetime="2021-07-19 23:50:00">July 19, 2021 - 23:50</time>
+
+13. Add the `add.html` file and create a view function `add_purchase_view` to render it. This page will allow a user to add a new sales record to the database, which will affect the graph on the `main.html` page.
+
+14. Fill up the `navbar.html` to create a working navigation bar for the entire website. This is included in the `base.html` to render it to any template which extends `base.html`. This creates a nice navigation panel for us to navigate through different pages.
+
+15. With this, we have a working website which allows us to store new sales data and views stats of sales based on number of sales for different items and selling price on daily basis.

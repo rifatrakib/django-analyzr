@@ -41,6 +41,7 @@ def get_simple_plot(chart_type, *ars, **kwargs):
         title = 'sales per day'
         plt.title(title)
         sns.countplot('name', data=data)
+    # plt.xticks(rotation=90)
     plt.tight_layout()
 
     graph = get_image()

@@ -16,3 +16,11 @@ ul li {
 .block-center {
     text-align: center !important;
 }
+
+.purchase-form {
+    width: 100%;
+}
+
+.mtop {
+    margin-top: 10px !important;
+}
