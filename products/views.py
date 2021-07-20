@@ -1,12 +1,16 @@
 from django.shortcuts import render
-from .models import Product, Purchase
+from django.contrib.auth.decorators import login_required
 
-from .utils import get_simple_plot
+from .models import Product, Purchase
+from .utils import get_simple_plot, get_salesman_from_id, get_image
 from .forms import PurchaseForm
 
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
+@login_required
 def chart_select_view(request):
     # initial values for context
     error_message = None
@@ -66,6 +70,7 @@ def chart_select_view(request):
     return render(request, 'products/main.html', context)
 
 
+@login_required
 def add_purchase_view(request):
     added_message = None
     form = PurchaseForm(request.POST or None)
@@ -82,3 +87,19 @@ def add_purchase_view(request):
         'added_message': added_message,
     }
     return render(request, 'products/add.html', context)
+
+
+@login_required
+def sales_dist_view(request):
+    df = pd.DataFrame(Purchase.objects.all().values())
+    df['salesman_id'] = df['salesman_id'].apply(get_salesman_from_id)
+    df.rename({'salesman_id': 'salesman'}, axis=1, inplace=True)
+    df['date'] = df['date'].apply(lambda x: x.strftime('%Y-%m-%d'))
+    # print(df)
+    plt.switch_backend('Agg')
+    plt.xticks(rotation=45)
+    sns.barplot(x='date', y='total_price', hue='salesman', data=df)
+    plt.tight_layout()
+    graph = get_image()
+
+    return render(request, 'products/sales.html', {'graph': graph, })

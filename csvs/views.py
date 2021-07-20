@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from .forms import CsvForm
 from .models import Csv
@@ -9,6 +10,7 @@ from products.models import Product, Purchase
 import csv
 
 
+@login_required
 def upload_file_view(request):
     error_message = None
     success_message = None

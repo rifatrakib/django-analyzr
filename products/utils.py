@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+
 from io import BytesIO
 
 import matplotlib.pyplot as plt
@@ -46,3 +48,8 @@ def get_simple_plot(chart_type, *ars, **kwargs):
 
     graph = get_image()
     return graph
+
+
+def get_salesman_from_id(value):
+    salesman = User.objects.get(id=value)
+    return salesman

@@ -127,3 +127,26 @@ Please make sure that your data does not have any header row.
 24. Create a `urls.py` to include new urls pointing to the templates in the `customer` app. Include this file in the `urls.py` script of the project directory.
 
 25. Add some customer data in the database using the admin panel. Then browser the client site to view the results and verify whether they are in good shape.
+
+### User authentication
+
+#### <time datetime="2021-07-20 17:05:00">July 20, 2021 - 17:05</time>
+
+26. Add `views.py` and `forms.py` into the project directory, i.e. the `analyzr` directory. Inside the `views.py` script, add 3 methods, one for home, one for login, and one for logging out. Random users cannot create user accounts in this site, as any user can input data into the database in any format, which can lead the various problems. Only admin can add a new user account through the admin panel, and then anyone can use those credentials to login. This is suitable for a sales management site.
+
+27. Add a login form in the `forms.py`. Render this form into the login template called `login.html` which is put into the root templates directory. The `home.html` template should also be put in the same directory.
+
+28. Add links to these 2 pages and logout functionality in the `analyzr/views.py` using suitable namespaces. Add all the necessary links with suitable logics in the `navbar.html` which renders links based on the authentication status of a visitor.
+
+29. Make sure to import the `login_required` decorator from `django.contrib.auth.decorators` and put it on top of every function-based views in the local `views.py` scripts in each of the 3 apps. This is done to make these views accessible only by the authenticated users.
+
+30. Add `LOGIN_URL` setting in the `settings.py` scripts in the project directory. Adding this setting will redirect any visitor to the login page if they are trying to access any protected page which have `login_required` decorator in the corresponding view.
+
+## Post scriptum
+
+If you find any mistakes, please make a pull request and let us know about the mistake so that we can make amendment to the repository. If you don't understand something, reach out to me using:
+
+[LinkedIn](https://www.linkedin.com/in/md-abdur-rakib-1508/)
+[Twitter](https://twitter.com/Muhammad16052)
+
+Thank you!!!
