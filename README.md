@@ -98,7 +98,7 @@ static_cdn/
 
 ### Upload data with csv files with new app
 
-#### <time datetime="2021-07-19 02:50:00">July 20, 2021 - 02:50</time>
+#### <time datetime="2021-07-20 02:50:00">July 20, 2021 - 02:50</time>
 
 16. Create a new app `csvs` in the same way we created `products` app before. Follow the same steps to create a `csvs/urls.py` and `csvs/forms.py`, add a model in the `csvs/models.py` and make migrations to create the database table.
 
@@ -114,4 +114,16 @@ product_name, quantity, unit_price, salesman_id, date_time
 
 Please make sure that your data does not have any header row.
 
-21. Upload a csv file to populate the database. A [`demo csv file`](https://github.com/Rakib1508/django-analyzr/blob/master/media_cnd/media_root/csvs/sales_data.csv) has been provided for you to start working, DO NOT MAKE ANY CHANGES FOR NOW WITH THE FILE.
+21. Upload a csv file to populate the database. A [`demo csv file`](https://github.com/Rakib1508/django-analyzr/tree/master/media_cdn/media_root/csvs/sales_data.csv) has been provided for you to start working, DO NOT MAKE ANY CHANGES FOR NOW WITH THE FILE.
+
+### New Customer app
+
+#### <time datetime="2021-07-20 15:28:00">July 20, 2021 - 15:28</time>
+
+22. Create a new app `customer` in the same way we created `products` app before. Follow the same steps to create a `customer/urls.py`, add a model in the `customer/models.py` and make migrations to create the database table.
+
+23. Create a view to show customer correlation stats on a webpage by rendering the `main.html` template local to the `customer` app. Don't forget to put a link to navigate to this template in the `navbar.html` template in the root `templates` directory.
+
+24. Create a `urls.py` to include new urls pointing to the templates in the `customer` app. Include this file in the `urls.py` script of the project directory.
+
+25. Add some customer data in the database using the admin panel. Then browser the client site to view the results and verify whether they are in good shape.
